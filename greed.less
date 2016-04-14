@@ -1,9 +1,15 @@
-@import "util.less";
-
-.opposite-float(left) { @opposite-float: right; }
-.opposite-float(right) { @opposite-float: left; }
-
 .grid(@grid-width: 100%, @gutter: 10%, @column-float: left) {
+
+  .opposite-float(left) { @opposite-float: right; }
+  .opposite-float(right) { @opposite-float: left; }
+
+  .clearfix() {
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
 
   .row() {
     .clearfix;

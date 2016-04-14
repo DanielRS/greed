@@ -17,7 +17,7 @@ Despite the name, the *greed* system is very simple while allowing for the follo
 
 ## Usage
 
-Use the `.grid` in any child scope, avoid using it in the **global** scope. For example:
+Use the `.grid` mixin in any child scope, avoid using it in the **global** scope. For example:
 
 This is wrong:
 ```less
@@ -38,7 +38,7 @@ This is right:
 }
 ```
 
-After using the `.grid` mixing, the `.row` and `.column` mixins become available, their signature is:
+After using the `.grid` mixin, the `.row` and `.column` mixins become available, their signature is:
 
     .row()
 

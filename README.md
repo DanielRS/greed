@@ -27,7 +27,7 @@ This is wrong:
 ```
 
 This is right:
-```
+```less
 .child-scope {
   .grid;
   ...
@@ -40,9 +40,13 @@ This is right:
 
 After using the `.grid` mixin, the `.row` and `.column` mixins become available, their signature is:
 
-    .row()
+```less
+.row()
+```
 
-    .column(@column-span, @columns, @cycle: 0)
+```less
+.column(@column-span, @columns, @cycle: 0)
+```
 
 `.row` Basically sets up the element that will hold the columns (clearfix, etc).
 `.column` Sets up a column width, float, etc.

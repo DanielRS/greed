@@ -13,26 +13,20 @@
 
   .row() {
     .clearfix;
+    margin-left: -@gutter / 2;
+    margin-right: -@gutter / 2;
   }
 
-  .column(@column-span, @columns, @cycle: 0) {
+  .column(@column-span, @columns, @cycle: @columns) {
     .opposite-float(@column-float);
-    @spanned-gutters: @gutter * (@column-span - 1);
-    @width-left: @grid-width - (@gutter * (@columns - 1));
-    @column-width: (@width-left / @columns) * @column-span + @spanned-gutters;
+    @column-width: calc(@grid-width / @columns ~" - " @gutter);
 
     display: inline-block;
     float: @column-float;
     width: @column-width;
-    margin-@{opposite-float}: @gutter;
+    margin-left: @gutter / 2;
+    margin-right: @gutter / 2;
 
-    & when (@cycle < 1) {
-      &:last-child { margin-@{opposite-float}: 0; }
-    }
-    & when not (@cycle < 1) {
-      &:nth-child(@{cycle}n), &:last-child { margin-@{opposite-float}: 0; }
-      &:nth-child(@{cycle}n + 1) { clear: @column-float; }
-    }
+    &:nth-child(@{cycle}n + 1) { clear: @column-float; }
   }
-
 }

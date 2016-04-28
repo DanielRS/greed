@@ -1,5 +1,8 @@
 .grid(@grid-width: 100%, @gutter: 10%, @column-float: left) {
 
+  @unit: get-unit(@gutter);
+  @percentage: ~"%";
+
   .opposite-float(left) { @opposite-float: right; }
   .opposite-float(right) { @opposite-float: left; }
 
@@ -19,11 +22,17 @@
 
   .column(@column-span, @columns, @cycle: @columns) {
     .opposite-float(@column-float);
-    @column-width: calc(@grid-width / @columns ~" - " @gutter);
+    @column-width: @grid-width / @columns;
+
+    & when not (@unit = @percentage) {
+      width: calc(@column-width * @column-span ~" - " @gutter);
+    }
+    & when (@unit = @percentage) {
+      width: @column-width * @column-span - @gutter;
+    }
 
     display: inline-block;
     float: @column-float;
-    width: @column-width;
     margin-left: @gutter / 2;
     margin-right: @gutter / 2;
 

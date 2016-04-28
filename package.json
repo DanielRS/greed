@@ -1,6 +1,6 @@
 {
   "name": "greed",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Semantic grid system for Less pre-processor",
   "main": "greed.less",
   "scripts": {

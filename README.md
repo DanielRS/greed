@@ -78,4 +78,4 @@ ul.list {
 
 ## License
 
-[MIT](https://github.com/DanielRS/greed/master/LICENSE)
+[MIT](https://github.com/DanielRS/greed/blob/master/LICENSE)

@@ -38,6 +38,12 @@ This is right:
 }
 ```
 
+The signature of the `.grid` mixin is:
+
+```less
+.grid(@grid-width: 100%, @gutter: 5%, @column-float: left)
+```
+
 After using the `.grid` mixin, the `.row` and `.column` mixins become available, their signature is:
 
 ```less
@@ -72,6 +78,4 @@ ul.list {
 
 ## License
 
-[MIT][license]
-
-[license]: "https://github.com/DanielRS/greed/master/LICENSE"
+[MIT](https://github.com/DanielRS/greed/master/LICENSE)

@@ -16,26 +16,27 @@
 
   .row() {
     .clearfix;
-    margin-left: -@gutter / 2;
-    margin-right: -@gutter / 2;
   }
 
   .column(@column-span, @columns, @cycle: @columns) {
     .opposite-float(@column-float);
-    @column-width: @grid-width / @columns;
+    @spanned-gutter: @gutter * (@column-span - 1);
+    @total-gutter: @gutter * (@columns - 1);
 
     & when not (@unit = @percentage) {
-      width: calc(@column-width * @column-span ~" - " @gutter);
+      @width-left: ~"(@{grid-width} - @{total-gutter})";
+      width: calc(~"(@{width-left} / @{columns}) * @{column-span} + @{spanned-gutter}");
     }
     & when (@unit = @percentage) {
-      width: @column-width * @column-span - @gutter;
+      @width-left: @grid-width - @total-gutter;
+      width: (@width-left / @columns) * @column-span + @spanned-gutter;
     }
 
     display: inline-block;
     float: @column-float;
-    margin-left: @gutter / 2;
-    margin-right: @gutter / 2;
+    margin-@{opposite-float}: @gutter;
 
+    &:nth-child(@{cycle}n), &:last-child { margin-@{opposite-float}: 0; }
     &:nth-child(@{cycle}n + 1) { clear: @column-float; }
   }
 }

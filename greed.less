@@ -24,7 +24,7 @@
     @total-gutter: @gutter * (@columns - 1);
 
     & when not (@unit = @percentage) {
-      @width-left: ~"(@{grid-width} - @{total-gutter})";
+      @width-left: ~"(@{grid-width} - @{total-gutter} - 1px)"; // substract 1px for Edge 11 rounding problem.
       width: calc(~"(@{width-left} / @{columns}) * @{column-span} + @{spanned-gutter}");
     }
     & when (@unit = @percentage) {
